@@ -9,7 +9,8 @@ import Footer from './Footer';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
 class App extends React.Component {
@@ -21,20 +22,27 @@ class App extends React.Component {
       <>
         <Router>
           <IsLoadingAndError>
-            <Header />
+            <Header
+              auth={this.props.auth0.authenticated}
+            />
             <Switch>
-              {this.props.auth0.authenticated &&
-                <Route exact path="/" component={MyFavoriteBooks} />
-              }
-              {!this.props.auth0.authenticated &&
-                <Route exact path="/login" component={Login} />
-              }
-              {this.props.auth0.authenticated &&
-                <Route exact path="/profile" component={Profile} />
-              }
-              {/* {this.props.auth0.isAuthenticated &&
-                <Profile />
-              } */}
+
+              <Route exact path="/">
+                {this.props.auth0.isAuthenticated ?
+                  <MyFavoriteBooks /> : <Login />
+                }
+              </Route>
+              <Route exact path="/login">
+                {this.props.auth0.isAuthenticated ?
+                  <Redirect to='/profile' /> : <Login />
+                }
+              </Route>
+              <Route exact path="/profile">
+                {this.props.auth0.isAuthenticated ?
+                  <Profile /> : <Redirect to='/login' />
+                }
+              </Route>
+
             </Switch>
             <Footer />
           </IsLoadingAndError>

@@ -18,7 +18,7 @@ class Header extends React.Component {
           </Nav>
           <Form inline>
             <LoginButton />
-            <LogoutButton />
+            <LogoutButton auth={this.props.auth0.authenticated} />
           </Form>
         </Container>
       </Navbar>

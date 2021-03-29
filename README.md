@@ -3,6 +3,8 @@
 **Authors**: Mason and Audrey
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
+- [Trello Board](https://trello.com/b/er6C3Otj/lab-11-12)
+
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
@@ -13,9 +15,12 @@
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+- Name of feature: Lab 11 - Audrey driving (Did 7 tasks of front-end)
+  - Estimate of time needed to complete: 3 hours
+  - Start time: 12:30pm
+  - Finish time: 3:15pm
+  - Actual time needed to complete: 3 hours 15 minutes
 
 ## Credit and Collaborations
 

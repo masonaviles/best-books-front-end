@@ -3,6 +3,7 @@
 **Authors**: Mason and Audrey
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
+- [Deployed Site](https://gracious-wilson-69136f.netlify.app/)
 - [Trello Board](https://trello.com/b/er6C3Otj/lab-11-12)
 
 ## Overview
@@ -16,11 +17,17 @@
 
 ## Change Log
 
-- Name of feature: Lab 11 - Audrey driving (Did 7 tasks of front-end)
+- Name of feature: Lab 11 - Audrey & Mason Pair Program (Did 7 tasks of front-end)
   - Estimate of time needed to complete: 3 hours
   - Start time: 12:30pm
   - Finish time: 3:15pm
   - Actual time needed to complete: 3 hours 15 minutes
+
+- Name of feature: Lab 11: Bootstrap Components - Mason 
+  - Estimate of time needed to complete: 1 hr
+  - Start time: 3:50pm
+  - Finish time: 
+  - Actual time needed to complete:
 
 ## Credit and Collaborations
 

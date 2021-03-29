@@ -23,18 +23,18 @@ class App extends React.Component {
           <IsLoadingAndError>
             <Header />
             <Switch>
-              {this.state.authenticated &&
+              {this.props.auth0.authenticated &&
                 <Route exact path="/" component={MyFavoriteBooks} />
               }
-              {!this.state.authenticated &&
+              {!this.props.auth0.authenticated &&
                 <Route exact path="/login" component={Login} />
               }
-              {this.state.authenticated &&
+              {this.props.auth0.authenticated &&
                 <Route exact path="/profile" component={Profile} />
               }
-              {this.props.auth0.isAuthenticated &&
+              {/* {this.props.auth0.isAuthenticated &&
                 <Profile />
-              }
+              } */}
             </Switch>
             <Footer />
           </IsLoadingAndError>

@@ -12,19 +12,21 @@ class BestBooks extends React.Component {
     // const user = this.props.auth0;
   }
 
-  getBooks = async (e) => {
-    e.preventDefault();
+  async componentDidMount() {
+    // getBooks = async () => {
+    console.log('inside getbooks');
     try {
-      const SERVER = process.env.REACT_APP_SERVER;
+      const SERVER = process.env.REACT_APP_SERVER || 'http://localhost:3001';
       const books = await axios.get(`${SERVER}/books`, { params: { email: this.props.auth0.user.email } });
 
-      console.log(books.data);
+      console.log('books: ', books);
       console.log('try block user auth0', this.props.auth0.user);
 
       this.setState({ books: books.data });
     } catch (error) {
       console.error(error);
     }
+    // };
   }
 
   render() {
@@ -32,11 +34,11 @@ class BestBooks extends React.Component {
     console.log('best boooks', this.state.books);
     return (
       <>
-        {this.state.books.length > 0 &&
-          <BooksCarousel
-            books={this.state.books}
-          />
-        }
+
+        <BooksCarousel
+          books={this.state.books}
+        />
+
 
       </>
     );

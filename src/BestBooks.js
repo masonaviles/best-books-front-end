@@ -27,9 +27,11 @@ class BestBooks extends React.Component {
   render() {
     return (
       <>
-        <BooksCarousel
-          books={this.state.books}
-        />
+        {this.state.books.length > 0 &&
+          <BooksCarousel
+            books={this.state.books}
+          />
+        }
 
       </>
     )

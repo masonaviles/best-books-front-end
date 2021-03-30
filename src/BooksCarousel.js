@@ -44,7 +44,7 @@ class BooksCarousel extends React.Component {
           </Carousel.Item>
         </Carousel>
       </>
-    )
+    );
   }
 
 }

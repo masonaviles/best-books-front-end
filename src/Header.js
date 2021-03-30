@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './header.css';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
+import LoggedInPic from './LoggedInPic';
 import { withAuth0 } from '@auth0/auth0-react';
 
 class Header extends React.Component {
@@ -19,6 +20,7 @@ class Header extends React.Component {
           <Form inline>
             <LoginButton />
             <LogoutButton auth={this.props.auth0.authenticated} />
+            <LoggedInPic />
           </Form>
         </Container>
       </Navbar>

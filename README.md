@@ -26,8 +26,8 @@
 - Name of feature: Lab 11: Bootstrap Components - Mason 
   - Estimate of time needed to complete: 1 hr
   - Start time: 3:50pm
-  - Finish time: 
-  - Actual time needed to complete:
+  - Finish time: 5:15pm
+  - Actual time needed to complete: 1.25 hr
 
 ## Credit and Collaborations
 

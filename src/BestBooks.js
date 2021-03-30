@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { useAuth0 } from '@auth0/auth0-react';
 import BooksCarousel from './BooksCarousel';
 
 class BestBooks extends React.Component {
@@ -8,6 +9,11 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
     }
+    const {
+      isAuthenticated,
+      user
+    } = useAuth0();
+  
   }
 
   getBooks = async (e) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './myFavoriteBooks.css';
+import BestBooks from './BestBooks';
 import { Container, Jumbotron } from 'react-bootstrap';
 
 
@@ -13,6 +14,7 @@ class MyFavoriteBooks extends React.Component {
           <p>
             This is a collection of my favorite books
           </p>
+          <BestBooks />
         </Container>
       </Jumbotron>
     );

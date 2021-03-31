@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
-// import BooksCarousel from './BooksCarousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -37,6 +36,7 @@ class BestBooks extends React.Component {
     // console.log('best boooks', this.state.books);
     return (
       <>
+        {this.state.books.length > 0 &&
         <Carousel>
           {booksData.map((book, index) => (
             <Carousel.Item key={index}>
@@ -54,6 +54,7 @@ class BestBooks extends React.Component {
           ))}
 
         </Carousel>
+        }
       </>
     );
   }

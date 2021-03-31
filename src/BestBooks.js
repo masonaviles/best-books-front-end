@@ -11,8 +11,8 @@ class BestBooks extends React.Component {
     super(props);
     this.state = {
       books: [],
-      newBook: [],
-      showModal: false,
+      newBook: {},
+      showModal: false
     };
     // const user = this.props.auth0;
   }
@@ -54,7 +54,7 @@ class BestBooks extends React.Component {
     // console.log('best boooks', this.state.books);
     return (
       <>
-        <Button onClick={openModal}>Add Book</Button>
+        <Button onClick={this.openModal}>Add Book</Button>
         {this.state.books.length > 0 &&
           <Carousel>
             {booksData.map((book, index) => (

@@ -3,18 +3,29 @@ import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
+import BookFormModal from './BookFormModal';
 
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
+      newBook: [],
+      showModal: false,
     };
     // const user = this.props.auth0;
   }
 
+  // openModal = () => {
+  //   this.setState({ showModal: true});
+  // }
+
+  // closeModal = () => {
+  //   this.setState({showModal: false});
+  // }
+
   async componentDidMount() {
-    // getBooks = async () => {
     // console.log('inside getbooks');
     try {
       const SERVER = process.env.REACT_APP_SERVER || 'http://localhost:3001';
@@ -27,7 +38,13 @@ class BestBooks extends React.Component {
     } catch (error) {
       console.error(error);
     }
-    // };
+  }
+
+  createNewBook = async (e) => {
+    e.preventDefault();
+    const SERVER = 'http://localhost:3001';
+    const bookReader = await axios.post(`${SERVER}/books`, { email: this.props.auth0.user.email, newBook: this.state.newBook });
+    this.setState({ books: bookReader.data.books });
   }
 
   render() {
@@ -36,25 +53,30 @@ class BestBooks extends React.Component {
     // console.log('best boooks', this.state.books);
     return (
       <>
+        <Button onClick={openModal}>Add Book</Button>
         {this.state.books.length > 0 &&
-        <Carousel>
-          {booksData.map((book, index) => (
-            <Carousel.Item key={index}>
-              <img
-                className="d-block w-100"
-                src='https://placeimg.com/300/300/any/grayscale'
-                alt={book.name}
-              />
-              <Carousel.Caption>
-                <h3>{book.name}</h3>
-                <p>{book.description}</p>
-                <p>{book.status}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          ))}
+          <Carousel>
+            {booksData.map((book, index) => (
+              <Carousel.Item key={index}>
+                <img
+                  className="d-block w-100"
+                  src='https://placeimg.com/300/300/any/grayscale'
+                  alt={book.name}
+                />
+                <Carousel.Caption>
+                  <h3>{book.name}</h3>
+                  <p>{book.description}</p>
+                  <p>{book.status}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
 
-        </Carousel>
+          </Carousel>
         }
+        <BookFormModal
+          showModal={this.state.showModal}
+          closeModal={this.closeModal}
+        />
       </>
     );
   }

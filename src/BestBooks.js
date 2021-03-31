@@ -14,15 +14,15 @@ class BestBooks extends React.Component {
 
   async componentDidMount() {
     // getBooks = async () => {
-    console.log('inside getbooks');
+    // console.log('inside getbooks');
     try {
       const SERVER = process.env.REACT_APP_SERVER || 'http://localhost:3001';
-      const books = await axios.get(`${SERVER}/books`, { params: { email: this.props.auth0.user.email } });
+      const bookReader = await axios.get(`${SERVER}/books`, { params: { email: this.props.auth0.user.email } });
 
-      console.log('books: ', books);
-      console.log('try block user auth0', this.props.auth0.user);
+      console.log('books: ', bookReader.data.books);
+      // console.log('try block user auth0', this.props.auth0.user);
 
-      this.setState({ books: books.data });
+      this.setState({ books: bookReader.data.books });
     } catch (error) {
       console.error(error);
     }
@@ -30,16 +30,20 @@ class BestBooks extends React.Component {
   }
 
   render() {
+    let booksData = this.state.books;
     console.log('user auth0', this.props.auth0.user.email);
-    console.log('best boooks', this.state.books);
+    // console.log('best boooks', this.state.books);
     return (
       <>
-
-        <BooksCarousel
-          books={this.state.books}
-        />
-
-
+        {booksData.map((book, index) => (
+          <div key={index}>
+            <BooksCarousel
+              name={book.name}
+              descripition={book.description}
+              status={book.status}
+            />
+          </div>
+        ))}
       </>
     );
   }

@@ -42,7 +42,7 @@ class BestBooks extends React.Component {
             <Carousel.Item key={index}>
               <img
                 className="d-block w-100"
-                src='https://placekitten.com/200/100'
+                src='https://placeimg.com/300/300/any/grayscale'
                 alt={book.name}
               />
               <Carousel.Caption>

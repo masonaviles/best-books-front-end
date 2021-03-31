@@ -5,6 +5,8 @@
 
 - [Deployed Site](https://gracious-wilson-69136f.netlify.app/)
 - [Trello Board](https://trello.com/b/er6C3Otj/lab-11-12)
+- [Trello Board for lab 12](https://trello.com/b/aLxB76Dp/best-books-lab-12)
+- [Trello Board for lab 13](https://trello.com/b/S5gZnzl4/best-books-lab-13)
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
@@ -23,11 +25,17 @@
   - Finish time: 3:15pm
   - Actual time needed to complete: 3 hours 15 minutes
 
-- Name of feature: Lab 11: Bootstrap Components - Mason 
+- Name of feature: Lab 11: Bootstrap Components - Mason
   - Estimate of time needed to complete: 1 hr
   - Start time: 3:50pm
   - Finish time: 5:15pm
   - Actual time needed to complete: 1.25 hr
+
+- Name of feature: Lab 12: Bootstrap Components - Carousel
+  - Estimate of time needed to complete: 1 hr
+  - Start time: 8:00p Mar 30
+  - Finish time: 12:58p Mar 31
+  - Actual time needed to complete: over the span of a few days, it took a couple of hours
 
 ## Credit and Collaborations
 

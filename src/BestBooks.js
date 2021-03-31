@@ -17,13 +17,14 @@ class BestBooks extends React.Component {
     // const user = this.props.auth0;
   }
 
-  // openModal = () => {
-  //   this.setState({ showModal: true});
-  // }
+  openModal = () => {
+    this.setState({ showModal: true});
+  }
 
-  // closeModal = () => {
-  //   this.setState({showModal: false});
-  // }
+  closeModal = () => {
+    this.setState({showModal: false});
+  }
+
 
   async componentDidMount() {
     // console.log('inside getbooks');
@@ -76,6 +77,7 @@ class BestBooks extends React.Component {
         <BookFormModal
           showModal={this.state.showModal}
           closeModal={this.closeModal}
+          createNewBook={this.createNewBook}
         />
       </>
     );

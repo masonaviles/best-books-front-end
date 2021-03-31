@@ -8,23 +8,37 @@ class BookFormModal extends React.Component {
     return (
       <>
         <Modal
-          showModal={this.props.show}
+          showModal={this.props.showModal}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
-          <Modal.Header closeButton>
+          <Modal.Header >
             <Modal.Title id="contained-modal-title-vcenter">
               Enter New Book
             </Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
+            <Form.Group>
+              <Form.Label>Name: </Form.Label>
+              <Form.Control type="text" placeholder="title of book" />
+            </Form.Group>
 
+            <Form.Group>
+              <Form.Label>Description: </Form.Label>
+              <Form.Control as="textarea" rows={3} placeholder="description of book" />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Status: </Form.Label>
+              <Form.Control type="text" placeholder="status" />
+            </Form.Group>
+            
           </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={ }>Submit</Button>
+            <Button type="submit" onClick={(e) => this.props.createNewBook(e)}>Submit</Button>
           </Modal.Footer>
 
         </Modal>

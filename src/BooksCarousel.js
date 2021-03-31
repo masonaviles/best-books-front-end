@@ -10,6 +10,11 @@ class BooksCarousel extends React.Component {
         <Carousel>
 
           <Carousel.Item>
+            <img
+              className="d-inline-block w-100 h-300"
+              src='https://placekitten.com/200/300'
+              alt={this.props.name}
+            />
             <Carousel.Caption>
               <h3>{this.props.name}</h3>
               <p>{this.props.description}</p>

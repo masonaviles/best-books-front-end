@@ -14,8 +14,8 @@ class MyFavoriteBooks extends React.Component {
           <p>
             This is a collection of my favorite books
           </p>
-          <BestBooks />
         </Container>
+        <BestBooks />
       </Jumbotron>
     );
   }

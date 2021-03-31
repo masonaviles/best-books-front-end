@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
-import BooksCarousel from './BooksCarousel';
+// import BooksCarousel from './BooksCarousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-bootstrap/Carousel';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -35,15 +37,23 @@ class BestBooks extends React.Component {
     // console.log('best boooks', this.state.books);
     return (
       <>
-        {booksData.map((book, index) => (
-          <div key={index}>
-            <BooksCarousel
-              name={book.name}
-              descripition={book.description}
-              status={book.status}
-            />
-          </div>
-        ))}
+        <Carousel>
+          {booksData.map((book, index) => (
+            <Carousel.Item key={index}>
+              <img
+                className="d-block w-100"
+                src='https://placekitten.com/200/100'
+                alt={book.name}
+              />
+              <Carousel.Caption>
+                <h3>{book.name}</h3>
+                <p>{book.description}</p>
+                <p>{book.status}</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+
+        </Carousel>
       </>
     );
   }

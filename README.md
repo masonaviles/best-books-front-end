@@ -9,13 +9,18 @@
 - [Trello Board for lab 13](https://trello.com/b/S5gZnzl4/best-books-lab-13)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+- Application that will allow users to login and update their page of favorite books. 
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+- React
+- Bootstrap
+- JavaScript
+- Auth0
 
 ## Change Log
 
@@ -36,6 +41,13 @@
   - Start time: 8:00p Mar 30
   - Finish time: 12:58p Mar 31
   - Actual time needed to complete: over the span of a few days, it took a couple of hours
+
+- Name of feature: Lab 13: Create - Front end and back end
+  - Estimate of time needed to complete: 3 hr
+  - Start time: 1:05pm
+  - Finish time: 5:00pm
+  - Actual time needed to complete: 4 hours
+
 
 ## Credit and Collaborations
 

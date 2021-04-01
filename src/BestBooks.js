@@ -44,11 +44,23 @@ class BestBooks extends React.Component {
   }
 
   handleName = (bookName) => this.setState({ bookName });
- 
   handleDescription = (bookDescription) => this.setState({ bookDescription });
- 
   handleStatus = (bookStatus) => this.setState({ bookStatus });
- 
+
+  deleteItem = async(index) => {
+    // use axios to call our API to delete the book at the index specified
+    const SERVER = 'http://localhost:3001';
+    const newBooks = await axios.delete(`${SERVER}/books/${index}`, {params: {email: this.props.auth0.user.email}});
+    console.log('after delete success', newBooks.data);
+
+    // update our books state with the array of books that are NOT deleted
+    const newBookArray = this.state.books.filter((book, i) => {
+      return index !== i;
+    });
+    this.setState({ books: newBookArray });
+    console.log('newBookArray in delete', newBookArray);
+  }
+
   createNewBook = async (e) => {
     e.preventDefault();
     const SERVER = 'http://localhost:3001';
@@ -78,6 +90,7 @@ class BestBooks extends React.Component {
                 <h3>{book.name}</h3>
                 <p>{book.description}</p>
                 <p>{book.status}</p>
+                <Button variant="danger" onClick={() => this.deleteItem(index)}>delete</Button>
               </Carousel.Caption>
             </Carousel.Item>
           ))}

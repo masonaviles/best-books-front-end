@@ -21,27 +21,24 @@ class BookFormModal extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
-            <Form.Group>
-              <Form.Label>Name: </Form.Label>
-              <Form.Control type="text" placeholder="title of book" />
-            </Form.Group>
+            <Form>
+              <Form.Group>
+                <Form.Label>Name: </Form.Label>
+                <Form.Control name="name" type="text" placeholder="title of book" onChange={(e) => this.props.handleName(e.target.value)} />
+              </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Description: </Form.Label>
-              <Form.Control as="textarea" rows={3} placeholder="description of book" />
-            </Form.Group>
+              <Form.Group>
+                <Form.Label>Description: </Form.Label>
+                <Form.Control as="textarea" rows={3} name="description" placeholder="description of book" onChange={(e) => this.props.handleDescription(e.target.value)} />
+              </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Status: </Form.Label>
-              <Form.Control type="text" placeholder="status" />
-            </Form.Group>
-
+              <Form.Group>
+                <Form.Label>Status: </Form.Label>
+                <Form.Control type="text" placeholder="status" name="status" onChange={(e) => this.props.handleStatus(e.target.value)} />
+              </Form.Group>
+              <Button type="submit" onClick={(e) => this.props.createNewBook(e)}>Submit</Button>
+            </Form>
           </Modal.Body>
-
-          <Modal.Footer>
-            <Button type="submit" onClick={(e) => this.props.createNewBook(e)}>Submit</Button>
-          </Modal.Footer>
-
         </Modal>
       </>
     );

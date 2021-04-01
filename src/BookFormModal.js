@@ -14,10 +14,11 @@ class BookFormModal extends React.Component {
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
-          <Modal.Header >
+          <Modal.Header>
             <Modal.Title id="contained-modal-title-vcenter">
               Enter New Book
             </Modal.Title>
+            <Button variant="dark" onClick={this.props.closeModal}>x</Button>
           </Modal.Header>
 
           <Modal.Body>

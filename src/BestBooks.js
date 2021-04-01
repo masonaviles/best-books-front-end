@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import BookFormModal from './BookFormModal';
+import { Container } from 'react-bootstrap';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -76,8 +77,9 @@ class BestBooks extends React.Component {
     // console.log('best boooks', this.state.books);
     return (
       <>
-        <Button onClick={this.openModal}>Add Book</Button>
-        {/* {this.state.books.length > 0 && */}
+        <Container className="mb-3">
+          <Button onClick={this.openModal}>Add Book</Button>
+        </Container>
         <Carousel>
           {this.state.books.map((book, index) => (
             <Carousel.Item key={index}>

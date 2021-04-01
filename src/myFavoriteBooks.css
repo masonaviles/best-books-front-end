@@ -1,3 +1,8 @@
 .jumbotron{
   margin-bottom: 0;
 }
+
+.carousel {
+  width: 30%;
+  margin: 0 auto;
+}

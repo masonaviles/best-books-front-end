@@ -48,6 +48,12 @@
   - Finish time: 5:00pm
   - Actual time needed to complete: 4 hours
 
+- Name of feature: Lab 13: Delete - Front end and back end
+  - Estimate of time needed to complete: 2 hr
+  - Start time: 5:00pm 
+  - Finish time: 6:09 pm
+  - Actual time needed to complete: 1hr
+
 
 ## Credit and Collaborations
 

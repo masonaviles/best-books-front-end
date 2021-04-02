@@ -7,6 +7,7 @@
 - [Trello Board](https://trello.com/b/er6C3Otj/lab-11-12)
 - [Trello Board for lab 12](https://trello.com/b/aLxB76Dp/best-books-lab-12)
 - [Trello Board for lab 13](https://trello.com/b/S5gZnzl4/best-books-lab-13)
+- [Trello Board for lab 14](https://trello.com/b/E5lMh03j/city-explorer-lab-14) 
 
 ## Overview
 
@@ -54,6 +55,11 @@
   - Finish time: 6:09 pm
   - Actual time needed to complete: 1hr
 
+- Name of feature: Lab 14: Update - Front end and back end
+  - Estimate of time needed to complete: 2 hr
+  - Start time: 2:45 pm
+  - Finish time: 5:03 pm
+  - Actual time needed to complete: 2 hr 15 minutes
 
 ## Credit and Collaborations
 

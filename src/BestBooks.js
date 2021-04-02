@@ -6,6 +6,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 import BookFormModal from './BookFormModal';
 import { Container } from 'react-bootstrap';
+import UpdateFormModal from './UpdateFormModal';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -15,7 +16,10 @@ class BestBooks extends React.Component {
       bookName: '',
       bookDescription: '',
       bookStatus: '',
-      showModal: false
+      showModal: false,
+      displayUpdateModal: false,
+      chosenBook: {},
+      indexOfChosenBook: -1
     };
     // const user = this.props.auth0;
   }
@@ -35,7 +39,7 @@ class BestBooks extends React.Component {
       const SERVER = process.env.REACT_APP_SERVER || 'http://localhost:3001';
       const bookReader = await axios.get(`${SERVER}/books`, { params: { email: this.props.auth0.user.email } });
 
-      console.log('books: ', bookReader.data.books);
+      // console.log('books: ', bookReader.data.books);
       // console.log('try block user auth0', this.props.auth0.user);
 
       this.setState({ books: bookReader.data.books });
@@ -46,7 +50,9 @@ class BestBooks extends React.Component {
 
   handleName = (bookName) => this.setState({ bookName });
   handleDescription = (bookDescription) => this.setState({ bookDescription });
-  handleStatus = (bookStatus) => this.setState({ bookStatus });
+  handleStatus = (bookStatus) => {
+    console.log('update modal', this.state.indexOfChosenBook);
+    this.setState({ bookStatus });};
 
   deleteItem = async(index) => {
     // use axios to call our API to delete the book at the index specified
@@ -59,7 +65,7 @@ class BestBooks extends React.Component {
       return index !== i;
     });
     this.setState({ books: newBookArray });
-    console.log('newBookArray in delete', newBookArray);
+    // console.log('newBookArray in delete', newBookArray);
   }
 
   createNewBook = async (e) => {
@@ -70,6 +76,35 @@ class BestBooks extends React.Component {
     this.setState({ books: bookReader.data, showModal: false});
     console.log('updated book?', this.state.books);
   }
+
+
+  displayUpdateModal = (index) => {
+    console.log('index', index);
+    const chosenBook = this.state.books[index];
+    this.setState({ chosenBook, indexOfChosenBook: index });
+    this.setState({ displayUpdateModal: true });
+  
+  }
+
+  replaceBook = async(e) => {
+    e.preventDefault();
+    const SERVER = 'http://localhost:3001';
+    const chosenBook = this.state.books[this.state.indexOfChosenBook];
+    const book = { 
+      name: chosenBook.name,
+      description: chosenBook.description,
+      status: this.state.bookStatus };
+
+
+    this.state.books.splice(this.state.indexOfChosenBook, 1, book);
+
+    const updatedBooksArray = await axios.put(`${SERVER}/books/${this.state.indexOfChosenBook}`, {email: this.props.auth0.user.email, book: book} );
+
+    console.log('after update new array:', updatedBooksArray.data);
+    this.setState({ books: updatedBooksArray.data, displayUpdateModal: false });
+  }
+
+
 
   render() {
     // let booksData = this.state.books;
@@ -93,6 +128,7 @@ class BestBooks extends React.Component {
                 <p>{book.description}</p>
                 <p>{book.status}</p>
                 <Button variant="danger" onClick={() => this.deleteItem(index)}>delete</Button>
+                <Button variant="info" onClick={() => this.displayUpdateModal(index)}>update</Button>
               </Carousel.Caption>
             </Carousel.Item>
           ))}
@@ -107,6 +143,12 @@ class BestBooks extends React.Component {
           handleName={this.handleName}
           handleDescription={this.handleDescription}
           handleStatus={this.handleStatus}
+        />
+        <UpdateFormModal
+          displayUpdateModal={this.state.displayUpdateModal}
+          chosenBook={this.state.chosenBook}
+          handleStatus={this.handleStatus}
+          replaceBook={this.replaceBook}
         />
       </>
     );
